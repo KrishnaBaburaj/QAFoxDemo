@@ -44,3 +44,20 @@ When user enters valid email "testerkrish@gmail.com" using keyboard
 And user enters valid password "tester123"  using keyboard
 And user clicks login button  using keyboard
 Then login sucess message must be displayed
+
+Scenario: verify the user gets logged out when click back button after logged in 
+Given user navigates to login page
+When user enters valid email "testerkrish@gmail.com"
+And user enters valid password "tester123"
+And user clicks login button
+And click the back button in the browser
+Then user should not be logged out
+
+Scenario: verify the user gets logged in when click back button after logged out 
+Given user navigates to login page
+When user enters valid email "testerkrish@gmail.com"
+And user enters valid password "tester123"
+And user clicks login button
+And click logout button 
+And click the back button in the browser
+Then user should not be logged in
